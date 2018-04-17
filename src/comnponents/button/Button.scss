@@ -1,0 +1,28 @@
+$btn-border-radius: 3px;
+
+$colors: (
+  success: #92ff44,
+  danger: #ff5e3c,
+  default: #ffffff,
+);
+
+.btn {
+  border-radius:$btn-border-radius;
+  display: inline-block;
+  text-align: center;
+  padding: 0.3rem 1rem;
+  color: #000;
+  font-weight: bold;
+  border: 1px solid #dbdbdb;
+  margin: 0 1rem;
+
+  &__danger {
+    background-color: map-get($colors, danger);
+  }
+  &__success {
+    background-color: map-get($colors, success);
+  }
+  &__default {
+    background-color: map-get($colors, default);
+  }
+}

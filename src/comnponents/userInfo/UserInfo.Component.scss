@@ -1,0 +1,60 @@
+.user-info {
+  max-width: 825px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  padding-top: 5rem;
+
+  &__photo {
+    border: 1px solid #c3c3c3;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    max-width: 150px;
+    max-height: 150px;
+  }
+
+  &__wrapper {
+
+  }
+
+  &__settings {
+    display: flex;
+    margin-left: 6.25rem;
+    align-items: center;
+    font-size: 1.5rem;
+    max-width: 450px;
+    justify-content: space-between;
+
+
+    &__name {
+      font-size: 2rem;
+      font-weight: lighter;
+    }
+  }
+
+  &__media {
+    display: flex;
+    margin-left: 6.25rem;
+    align-items: center;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    justify-content: space-between;
+    max-width: 450px;
+
+  }
+
+  &__description {
+    margin-left: 6.25rem;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+
+    &__full-name {
+      font-size: 1.5rem;
+    }
+
+    &__about {
+      margin-top: 1rem;
+    }
+  }
+}

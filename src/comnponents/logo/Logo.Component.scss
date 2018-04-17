@@ -1,0 +1,17 @@
+.app-logo {
+
+  display: flex;
+  align-items: center;
+
+  &__icon {
+    padding-right: 1.5rem;
+    border-right: 1px solid black;
+    color: #000;
+  }
+
+  &__image-text {
+    width: 110px;
+    padding-top: 0.4rem;
+    padding-left: 1.5rem;
+  }
+}
