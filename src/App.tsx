@@ -29,7 +29,7 @@ class App extends React.Component<AppProps, {}> {
                 <Route
                     exact={true}
                     path={'/'}
-                    render={({...props}) =>  <HomeComponent {...props} data={this.props.store.userData} />}
+                    render={({...props}) =>  <HomeComponent {...props} store={this.props.store} />}
                 />
                 <Route path={'/about'} component={AboutComponent}/>
             </div>

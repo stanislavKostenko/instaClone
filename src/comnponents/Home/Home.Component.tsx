@@ -1,16 +1,19 @@
 import * as React from 'react';
 import { UserInfoComponent } from '../userInfo/UserInfo.Component';
-import { UserProfileResponse } from '../../types/user.types';
 import { observer } from 'mobx-react';
+import { AppStore } from '../../stores/app.store';
 
 interface HomeProps {
-    data: UserProfileResponse;
+    store: AppStore;
 }
 @observer
 export class HomeComponent extends React.Component<HomeProps> {
+    constructor(props: HomeProps) {
+        super(props);
+    }
     render() {
         return (
-            <UserInfoComponent data={this.props.data}/>
+            <UserInfoComponent data={this.props.store.userData}/>
         );
     }
 }
