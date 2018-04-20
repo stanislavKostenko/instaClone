@@ -3,38 +3,39 @@ import './App.scss';
 import { Header } from './comnponents/header/Header.component';
 import { AppStore } from './stores/app.store';
 import { observer } from 'mobx-react';
-import { UserInfoComponent } from './comnponents/userInfo/UserInfo.Component';
+import { HashRouter as Router, Route } from 'react-router-dom';
+import { HomeComponent } from './comnponents/Home/Home.Component';
+import { AboutComponent } from './comnponents/About/About.Component';
 
 interface AppProps {
-  store: AppStore;
+    store: AppStore;
 }
 
 @observer
 class App extends React.Component<AppProps, {}> {
-  constructor(props: AppProps) {
-    super(props);
-  }
+    constructor(props: AppProps) {
+        super(props);
+    }
 
-  componentDidMount() {
-    this.props.store.init();
-  }
+    componentDidMount() {
+        this.props.store.init();
+    }
 
-  render() {
-    return (
-      <div className="App">
-        <Header commentsCount={0}/>
-        <UserInfoComponent
-            image={this.props.store.userPicture}
-            userName={this.props.store.userName}
-            userMedia={this.props.store.userMedia}
-            userFollowers={this.props.store.userFollowers}
-            userFollows={this.props.store.userFollows}
-            userFullName={this.props.store.userFullName}
-            userBio={this.props.store.userBio}
-        />
-      </div>
-    );
-  }
+    render() {
+        return (
+            <Router>
+            <div className="App">
+                <Header/>
+                <Route
+                    exact={true}
+                    path={'/'}
+                    render={({...props}) =>  <HomeComponent {...props} data={this.props.store.userData} />}
+                />
+                <Route path={'/about'} component={AboutComponent}/>
+            </div>
+            </Router>
+        );
+    }
 }
 
 export default App;
