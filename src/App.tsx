@@ -5,7 +5,7 @@ import { AppStore } from './stores/app.store';
 import { observer } from 'mobx-react';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import { HomeComponent } from './comnponents/Home/Home.Component';
-import { AboutComponent } from './comnponents/About/About.Component';
+import { SettingsComponent } from './comnponents/About/Settings.Component';
 
 interface AppProps {
     store: AppStore;
@@ -31,7 +31,7 @@ class App extends React.Component<AppProps, {}> {
                     path={'/'}
                     render={({...props}) =>  <HomeComponent {...props} store={this.props.store} />}
                 />
-                <Route path={'/about'} component={AboutComponent}/>
+                <Route path={'/settings'} component={SettingsComponent}/>
             </div>
             </Router>
         );

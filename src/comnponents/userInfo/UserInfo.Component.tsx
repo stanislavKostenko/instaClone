@@ -2,6 +2,7 @@ import * as React from 'react';
 import './UserInfo.Component.scss';
 import { Button } from '../button/Button';
 import { UserProfileResponse } from '../../types/user.types';
+import { Link } from 'react-router-dom';
 
 interface UserInfoComponentProps {
     data: UserProfileResponse;
@@ -31,9 +32,11 @@ export class UserInfoComponent extends React.Component<UserInfoComponentProps> {
                         <h3 className="user-info__settings__name">
                             {this.props.data.username}
                         </h3>
-                        <Button>
-                            Редактировать профиль
-                        </Button>
+                        <Link to={'/settings'}>
+                            <Button>
+                                Редактировать профиль
+                            </Button>
+                        </Link>
                         <i className="fa fa-cog" aria-hidden="true" />
                     </div>
                     <div className="user-info__media">
