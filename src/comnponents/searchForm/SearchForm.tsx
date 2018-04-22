@@ -32,7 +32,7 @@ export class SearchForm extends React.Component<{}, SearchFormState> {
         onSubmit={this.submitHandler}
       >
         <Input
-          type={InputTypes.PASSWORD}
+          type={InputTypes.TEXT}
           value={this.state.searchValue}
           onInput={this.onInputHandler}
           placeholder="search"

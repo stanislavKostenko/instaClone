@@ -5,12 +5,16 @@ import registerServiceWorker from './registerServiceWorker';
 import './index.scss';
 import { AppStore } from './stores/app.store';
 import { UserProvider } from './providers/user.provider';
+import { MediaListStore } from './comnponents/MediaList.Component/MediaList.store';
+import { MediaProvider } from './providers/media.provider';
 
 const userProvider = new UserProvider();
 const appStore = new AppStore(userProvider);
+const mediaProvider = new MediaProvider();
+const mediaStore = new MediaListStore(mediaProvider);
 
 ReactDOM.render(
-  <App store={appStore}/>,
-  document.getElementById('root') as HTMLElement
+    <App store={appStore} mediaStore={mediaStore}/>,
+    document.getElementById('root') as HTMLElement
 );
 registerServiceWorker();

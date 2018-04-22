@@ -1,0 +1,27 @@
+import { Media } from '../types/media.types';
+import { appConfigs } from '../configs/configs';
+
+export class MediaProvider {
+    getUserMedia(): Promise<Array<Media>> {
+        return new Promise(
+            (resolve, reject) => {
+                const xhr = new XMLHttpRequest();
+
+                xhr.open('GET', `${appConfigs.apiUrl}/users/self/media/recent/?access_token=${appConfigs.token}`);
+
+                xhr.send();
+
+                xhr.onreadystatechange = () => {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            const response = JSON.parse(xhr.response);
+                            resolve(response.data);
+                        } else {
+                            reject(xhr.response);
+                        }
+                    }
+                };
+            }
+        );
+    }
+}
