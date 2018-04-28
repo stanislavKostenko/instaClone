@@ -5,9 +5,9 @@ import { AppStore } from './stores/app.store';
 import { observer } from 'mobx-react';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import { HomeComponent } from './comnponents/Home/Home.Component';
-import { SettingsComponent } from './comnponents/About/Settings.Component';
-import { MediaListComponent } from './comnponents/MediaList.Component/MediaList.Component';
+import { SettingsComponent } from './comnponents/Settings/Settings.Component';
 import { MediaListStore } from './comnponents/MediaList.Component/MediaList.store';
+import { DetailsComponent } from './comnponents/Details/Details.Component';
 
 interface AppProps {
     store: AppStore;
@@ -33,10 +33,19 @@ class App extends React.Component<AppProps, {}> {
                     <Route
                         exact={true}
                         path={'/'}
-                        render={({...props}) => <HomeComponent {...props} store={this.props.store}/>}
+                        render={({...props}) =>
+                            <HomeComponent
+                                {...props}
+                                store={this.props.store}
+                                mediaStore={this.props.mediaStore}
+                            />}
                     />
                     <Route path={'/settings'} component={SettingsComponent}/>
-                    <MediaListComponent data={this.props.mediaStore.userData}/>
+                    <Route
+                        path={'/details'}
+                        render={({...props}) =>
+                            <DetailsComponent {...props} />}
+                    />
                 </div>
             </Router>
         );
