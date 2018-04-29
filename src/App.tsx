@@ -8,10 +8,12 @@ import { HomeComponent } from './comnponents/Home/Home.Component';
 import { SettingsComponent } from './comnponents/Settings/Settings.Component';
 import { MediaListStore } from './comnponents/MediaList.Component/MediaList.store';
 import { DetailsComponent } from './comnponents/Details/Details.Component';
+import { DetailsStore } from './comnponents/Details/Details.store';
 
 interface AppProps {
     store: AppStore;
     mediaStore: MediaListStore;
+    detailsStore: DetailsStore;
 }
 
 @observer
@@ -42,9 +44,9 @@ class App extends React.Component<AppProps, {}> {
                     />
                     <Route path={'/settings'} component={SettingsComponent}/>
                     <Route
-                        path={'/details'}
+                        path={'/details/:id'}
                         render={({...props}) =>
-                            <DetailsComponent {...props} />}
+                            <DetailsComponent {...props}/>}
                     />
                 </div>
             </Router>

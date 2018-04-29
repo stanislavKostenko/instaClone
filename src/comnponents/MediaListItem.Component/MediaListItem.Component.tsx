@@ -9,7 +9,7 @@ interface Props {
 export class MediaListItemComponent extends React.Component<Props> {
     render() {
         return(
-            <Link to={'/details/:id'}>
+            <Link to={`/details/${this.props.data.id}`}>
                 <div className="media-list__item">
                     <img src={this.props.data.images.low_resolution.url} alt="photo"/>
                 </div>
